@@ -71,8 +71,6 @@ function playSound(event) {
   key.classList.add('playing');
 };
 
-window.addEventListener('keydown', playSound);
-
 function removeTransition(key) {
   // console.log(event);
   if(key.propertyName !== 'transform') return;
@@ -80,7 +78,9 @@ function removeTransition(key) {
   // console.log(this);
   this.classList.remove('playing');
 }
+
 theKeys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', playSound);
 
 </script>
 
